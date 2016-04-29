@@ -114,6 +114,8 @@ zle -N vi-put-before
 vi-visual-highlight () {
     integer CURSOR_HL MARK_HL
 
+    #region_highlight=()
+    _zsh_highlight
     if [[ $CURSOR -gt $MARK ]];then
         (( CURSOR_HL = CURSOR + 1 ))
         __regstart=$MARK
