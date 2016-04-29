@@ -118,16 +118,16 @@ vi-visual-highlight () {
         (( CURSOR_HL = CURSOR + 1 ))
         __regstart=$MARK
         __regend=$CURSOR_HL
-        region_highlight=("${MARK} ${CURSOR_HL} standout")
+        region_highlight+=("${MARK} ${CURSOR_HL} standout")
     elif [[ $MARK -gt $CURSOR ]];then
         (( MARK_HL = MARK + 1 ))
         __regstart=$CURSOR
         __regend=$MARK_HL
-        region_highlight=("${CURSOR} ${MARK_HL} standout")
+        region_highlight+=("${CURSOR} ${MARK_HL} standout")
     elif [[ $MARK -eq $CURSOR ]];then
         __regstart=$CURSOR
         __regend=$MARK
-        region_highlight=("${CURSOR} ${MARK} standout")
+        region_highlight+=("${CURSOR} ${MARK} standout")
     fi
 }
 zle -N vi-visual-highlight
